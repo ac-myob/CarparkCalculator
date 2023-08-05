@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarparkCalculator", "CarparkCalculator\CarparkCalculator.csproj", "{D352194E-393D-429D-BF32-7504E8F64F17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarparkCalculator.Tests", "CarparkCalculator.Tests\CarparkCalculator.Tests.csproj", "{E8B0F3C6-A821-4755-9F57-1155E8594E61}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D352194E-393D-429D-BF32-7504E8F64F17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D352194E-393D-429D-BF32-7504E8F64F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D352194E-393D-429D-BF32-7504E8F64F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D352194E-393D-429D-BF32-7504E8F64F17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8B0F3C6-A821-4755-9F57-1155E8594E61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8B0F3C6-A821-4755-9F57-1155E8594E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8B0F3C6-A821-4755-9F57-1155E8594E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8B0F3C6-A821-4755-9F57-1155E8594E61}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
