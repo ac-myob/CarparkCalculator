@@ -9,6 +9,6 @@ public class Money
         if (amount < 0)
             throw new ArgumentOutOfRangeException(nameof(amount));
         
-        Amount = amount;
+        Amount = Math.Round(amount, 2, MidpointRounding.AwayFromZero);
     }
 }
