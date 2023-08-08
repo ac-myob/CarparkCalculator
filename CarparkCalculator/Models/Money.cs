@@ -11,4 +11,6 @@ public class Money
         
         Amount = Math.Round(amount, 2, MidpointRounding.AwayFromZero);
     }
+
+    public override string ToString() => Amount.ToString("C");
 }

@@ -8,26 +8,56 @@ public class WeekendRateTests
     private readonly WeekendRate _weekendRate = new();
     
     [Theory]
-    [MemberData(nameof(CarparkDurationTestData))]
+    [MemberData(nameof(SatisfiesEntryAndExitConditionTestData))]
     public void SatisfiesRateCondition_ReturnsTrue_GivenCarparkDurationsIsWithinEntryAndExitCondition(CarparkDuration carparkDuration)
     {
         var actualBool = _weekendRate.SatisfiesRateCondition(carparkDuration);
 
         actualBool.Should().BeTrue();
     }
+    
+    [Theory]
+    [MemberData(nameof(DoesNotSatisfyEntryAndExitConditionTestData))]
+    public void SatisfiesRateCondition_ReturnsFalse_GivenCarparkDurationsIsNotWithinEntryAndExitCondition(CarparkDuration carparkDuration)
+    {
+        var actualBool = _weekendRate.SatisfiesRateCondition(carparkDuration);
 
-    private static IEnumerable<object[]> CarparkDurationTestData()
+        actualBool.Should().BeFalse();
+    }
+
+    private static IEnumerable<object[]> SatisfiesEntryAndExitConditionTestData()
     {
         yield return new object[]
         {
-            new CarparkDuration(new DateTime(2000, 1, 15, 6, 0, 0), 
-                new DateTime(2000, 1, 15, 15, 30, 0)),
+            new CarparkDuration(TestHelper.GenerateDateAndTime(6, 1, 2023, 0, 1), 
+                TestHelper.GenerateDateAndTime(8, 1, 2023, 23, 59))
         };
         
         yield return new object[]
         {
-            new CarparkDuration(new DateTime(2000, 1, 1, 6, 0, 0), 
-                new DateTime(2000, 1, 1, 15, 30, 0)),
+            new CarparkDuration(TestHelper.GenerateDateAndTime(8, 1, 2023), 
+                TestHelper.GenerateDateAndTime(8, 1, 2023, 23, 59))
+        };
+    }
+    
+    private static IEnumerable<object[]> DoesNotSatisfyEntryAndExitConditionTestData()
+    {
+        yield return new object[]
+        {
+            new CarparkDuration(TestHelper.GenerateDateAndTime(6, 1, 2023), 
+                TestHelper.GenerateDateAndTime(8, 1, 2023, 23, 59))
+        };
+        
+        yield return new object[]
+        {
+            new CarparkDuration(TestHelper.GenerateDateAndTime(6, 1, 2023, 1), 
+                TestHelper.GenerateDateAndTime(9, 1, 2023))
+        };
+        
+        yield return new object[]
+        {
+            new CarparkDuration(TestHelper.GenerateDateAndTime(3, 1, 2023, 0, 1), 
+                TestHelper.GenerateDateAndTime(4, 1, 2023, 23, 59))
         };
     }
 }

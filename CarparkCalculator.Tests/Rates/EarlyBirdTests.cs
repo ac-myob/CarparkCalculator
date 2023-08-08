@@ -1,6 +1,5 @@
 using CarparkCalculator.Application.Rates;
 using CarparkCalculator.Models;
-using FluentAssertions;
 
 namespace CarparkCalculator.Tests.Rates;
 
@@ -32,14 +31,17 @@ public class EarlyBirdTests
     {
         yield return new object[]
         {
-            new CarparkDuration(new DateTime(2000, 1, 15, 6, 0, 0), 
-                new DateTime(2000, 1, 15, 15, 30, 0)),
+            new CarparkDuration(TestHelper.GenerateTime(6), TestHelper.GenerateTime(23, 30))
         };
         
         yield return new object[]
         {
-            new CarparkDuration(new DateTime(2000, 1, 1, 6, 0, 0), 
-                new DateTime(2000, 1, 1, 15, 30, 0)),
+            new CarparkDuration(TestHelper.GenerateTime(9), TestHelper.GenerateTime(15, 30))
+        };
+        
+        yield return new object[]
+        {
+            new CarparkDuration(TestHelper.GenerateTime(7, 30), TestHelper.GenerateTime(19, 30))
         };
     }
     
@@ -47,6 +49,22 @@ public class EarlyBirdTests
     {
         yield return new object[]
         {
+            new CarparkDuration(TestHelper.GenerateTime(5, 59), TestHelper.GenerateTime(23, 30))
+        };
+        
+        yield return new object[]
+        {
+            new CarparkDuration(TestHelper.GenerateTime(6), TestHelper.GenerateTime(23, 31))
+        };
+        
+        yield return new object[]
+        {
+            new CarparkDuration(TestHelper.GenerateTime(9, 1), TestHelper.GenerateTime(15, 30))
+        };
+        
+        yield return new object[]
+        {
+            new CarparkDuration(TestHelper.GenerateTime(9), TestHelper.GenerateTime(15, 29))
         };
     }
 }
